@@ -40,7 +40,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       h.vm.provision 'shell', inline: "echo '127.0.0.1 localhost' > /etc/hosts"
 
       nodes.each do |k, v|
-#        h.vm.provision 'shell', inline: "echo #{v[:ip]} #{k} #{v[:hostname]} >> /etc/hosts" unless k == host
         h.vm.provision 'shell', inline: "echo #{v[:ip]} #{k} #{v[:hostname]} >> /etc/hosts"
       end
 
