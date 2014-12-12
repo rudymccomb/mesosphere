@@ -23,6 +23,16 @@
     content=manual
   when: mesos_master is not defined or not mesos_master
 
+- name: Enable containers on mesos-slave
+  copy:
+    dest=/etc/mesos-slave/containerizers
+    content=docker,mesos
+
+- name: Increase the executor timeout
+  copy:
+    dest=/etc/mesos-slave/executor_registration_timeout
+    content=5mins
+
 - name: Make sure mesos-slave is running
   service:
     name=mesos-slave
