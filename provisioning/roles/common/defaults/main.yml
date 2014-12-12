@@ -1,0 +1,10 @@
+---
+common_packages_present:
+  - htop
+
+common_packages_absent:
+  - ohai*
+  - chef*
+  - facter*
+  - puppet*
+  - puppet-common*

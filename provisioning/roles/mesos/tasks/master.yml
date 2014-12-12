@@ -1,0 +1,44 @@
+---
+- name: Install Marathon
+  apt: pkg=marathon
+
+- name: Stop mesos-slave
+  service:
+    name=mesos-slave
+    state=stopped
+  when: not mesos_slave
+
+- name: Disable mesos-slave
+  copy:
+    dest=/etc/init/mesos-slave.override
+    content=manual
+  when: not mesos_slave
+
+- name: Set Zookeeper id
+  copy:
+    dest=/etc/zookeeper/conf/myid
+    content={{ zookeeper_id }}
+
+- name: Set Zookeeper configuration
+  template:
+    src=zoo.cfg.jinja
+    dest=/etc/zookeeper/conf/zoo.cfg
+  notify: restart zookeeper
+
+- name: Set mesos-master quorum
+  copy:
+    dest=/etc/mesos-master/quorum
+    content=2
+  notify:
+    - "restart mesos-master"
+    - "restart marathon"
+
+- name: Make sure mesos-master is running
+  service:
+    name=mesos-master
+    state=running
+
+- name: Make sure marathon is running
+  service:
+    name=marathon
+    state=running

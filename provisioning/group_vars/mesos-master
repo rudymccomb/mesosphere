@@ -1,0 +1,3 @@
+---
+mesos_master: true
+mesos_slave: false

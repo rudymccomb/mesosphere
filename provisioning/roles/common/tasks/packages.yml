@@ -1,0 +1,14 @@
+---
+- name: Install default packages
+  apt:
+    name={{ item }} state=present
+    update_cache=yes
+  with_items:
+    - '{{ common_packages_present }}'
+  when: common_packages_present is defined
+
+- name: Uninstall packages
+  apt: name={{ item }} state=absent
+  with_items:
+    - '{{ common_packages_absent }}'
+  when: common_packages_absent is defined

@@ -1,0 +1,24 @@
+---
+- name: Add Mesosphere repository key
+  apt_key:
+    keyserver="keyserver.ubuntu.com"
+    id="E56151BF"
+
+- name: Add Mesosphere repository and update cache
+  apt_repository:
+    repo="deb http://repos.mesosphere.io/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} main"
+    update_cache=yes
+
+- name: Install Mesos
+  apt: pkg=mesos
+
+- name: Set Mesos configuration for Zookeeper
+  template:
+    src=zk.jinja
+    dest=/etc/mesos/zk
+
+- include: master.yml
+  when: mesos_master is defined and mesos_master
+
+- include: slave.yml
+  when: mesos_slave is defined and mesos_slave

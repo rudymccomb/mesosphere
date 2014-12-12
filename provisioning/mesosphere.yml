@@ -1,0 +1,10 @@
+---
+- hosts: mesos-master
+  sudo: yes
+  roles:
+    - mesos
+
+- hosts: mesos-slave
+  sudo: yes
+  roles:
+    - mesos

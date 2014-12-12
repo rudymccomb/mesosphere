@@ -1,0 +1,12 @@
+master01  ansible_ssh_host=192.168.200.100 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+master02  ansible_ssh_host=192.168.200.101 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+master03  ansible_ssh_host=192.168.200.102 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+slave01   ansible_ssh_host=192.168.200.110 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[mesos-master]
+master01
+master02
+master03
+
+[mesos-slave]
+slave01
