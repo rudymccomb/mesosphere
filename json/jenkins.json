@@ -1,26 +1,12 @@
 {
   "id": "jenkins",
-  "cpus": 1.0,
+  "cpus": 0.5,
   "mem": 256.0,
   "instances": 1,
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "jenkins",
-      "network": "BRIDGE",
-      "portMappings": [
-        { "containerPort": 8080, "hostPort": 0, "servicePort": 9000, "protocol": "tcp" }
-      ]
+      "image": "jenkins"
     }
-  },
-  "healthChecks": [
-    {
-      "protocol": "HTTP",
-      "portIndex": 0,
-      "path": "/",
-      "gracePeriodSeconds": 5,
-      "intervalSeconds": 20,
-      "maxConsecutiveFailures": 3
-    }
-  ]
+  }
 }
