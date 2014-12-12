@@ -12,6 +12,9 @@
 - name: Install Mesos
   apt: pkg=mesos
 
+- name: Install Docker
+  apt: pkg=docker.io
+
 - name: Set Mesos configuration for Zookeeper
   template:
     src=zk.jinja
