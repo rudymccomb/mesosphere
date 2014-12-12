@@ -2,22 +2,22 @@ nodes = {
   master01: {
     hostname: 'master01.localdomain',
     ip: '192.168.200.100',
-    memory: 512
+    memory: 2048
   },
   master02: {
     hostname: 'master02.localdomain',
     ip: '192.168.200.101',
-    memory: 512
+    memory: 2048
   },
   master03: {
     hostname: 'master03.localdomain',
     ip: '192.168.200.102',
-    memory: 512
+    memory: 2048
   },
   slave01: {
     hostname: 'slave01.localdomain',
     ip: '192.168.200.110',
-    memory: 1024
+    memory: 2048
   }
 }
 
