@@ -3,25 +3,25 @@
   service:
     name=mesos-master
     state=stopped
-  when: mesos_master is defined and not mesos_master
+  when: mesos_master is not defined or not mesos_master
 
 - name: Disable mesos-master
   copy:
     dest=/etc/init/mesos-master.override
     content=manual
-  when: mesos_master is defined and not mesos_master
+  when: mesos_master is not defined or not mesos_master
 
 - name: Stop zookeeper
   service:
     name=zookeeper
     state=stopped
-  when: mesos_master is defined and not mesos_master
+  when: mesos_master is not defined or not mesos_master
 
 - name: Disable zookeeper
   copy:
     dest=/etc/init/zookeeper.override
     content=manual
-  when: mesos_master is defined and not mesos_master
+  when: mesos_master is not defined or not mesos_master
 
 - name: Make sure mesos-slave is running
   service:

@@ -33,6 +33,11 @@
     - "restart mesos-master"
     - "restart marathon"
 
+- name: Make sure zookeeper is running
+  service:
+    name=zookeeper
+    state=running
+
 - name: Make sure mesos-master is running
   service:
     name=mesos-master

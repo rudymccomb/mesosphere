@@ -8,3 +8,4 @@
   sudo: yes
   roles:
     - mesos
+    - docker
