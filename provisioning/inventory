@@ -10,3 +10,7 @@ master03
 
 [mesos-slave]
 slave01
+
+[mesos:children]
+mesos-master
+mesos-slave
