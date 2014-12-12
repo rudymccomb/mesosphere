@@ -1,0 +1,17 @@
+Docker file mapping?
+
+- Jenkins zonder workers
+- Automatisch slaves starten
+- Build een simpele app
+- Deploye de app 1 maal
+- Endpoint registratie
+- Schaal de applicatie handmatig
+
+Extra
+- Schaal de applicatie automatisch
+- Multi services
+
+Vragen:
+- Hoe om te gaan met jenkins data
+- Als je de jenkins host stopt wat dan?
+-  
